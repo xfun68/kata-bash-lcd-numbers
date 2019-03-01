@@ -1,5 +1,7 @@
 #!/bin/bash
 
+size=${1:-1}
+
 function scale
 {
     local lines="$1"
@@ -14,14 +16,15 @@ function scale
     printf "%.0s${scaled_line}\n" `seq $times`
 }
 
-read size
-
-while read id
-do
-    lines=`cat /tmp/lcd-numbers/$(printf '%03d' $id).lcd`
+while read id; do
+    lcd_file="/tmp/lcd-numbers/$(printf '%03d' $id).lcd"
+    lines=`cat $lcd_file`
+    :> $lcd_file
 
     for ln in `seq 5`; do
-        scale "$lines" $ln >> /tmp/lcd-numbers/`printf '%03d' $id`.lcd.scaled
+        scale "$lines" $ln >> $lcd_file
     done
+
+    echo $id
 done
 
