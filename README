@@ -2,5 +2,5 @@ Bash implementation of kata http://rubyquiz.com/quiz14.html
 
 Usage:
 
-lcd-convert.sh 0123456789 | lcd-scale.sh 3 | lcd-display.sh
+./lcd-convert.sh 0123456789 | ./lcd-scale.sh 3 | ./lcd-display.sh
 
