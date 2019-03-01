@@ -1,0 +1,6 @@
+Bash implementation of kata http://rubyquiz.com/quiz14.html
+
+Usage:
+
+lcd-convert.sh 3 0123456789 | lcd-scale.sh | lcd-display.sh
+
